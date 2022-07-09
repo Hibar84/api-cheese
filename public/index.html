@@ -1,89 +1,411 @@
-<!DOCTYPE html>
-<html>
-  <head>
+<!doctype html>
+<html lang="fr" data-fr-scheme="system">
+<head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="dsfr.min.css">
+    <link rel="stylesheet" href="custom.css">
+    <link rel="stylesheet" href="utility/utility.min.css">
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/9.9.0/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/9.9.0/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/9.9.0/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/9.9.0/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/9.9.0/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/9.9.0/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/9.9.0/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/9.9.0/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/9.9.0/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/9.9.0/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+    <meta name="theme-color" content="#000091"><!-- Défini la couleur de thème du navigateur (Safari/Android) -->
+    <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png"><!-- 180×180 -->
+    <link rel="icon" href="favicon/favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon"><!-- 32×32 -->
+    <link rel="manifest" href="favicon/manifest.webmanifest" crossorigin="use-credentials">
+    <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
+    <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
-    </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+    <title>Mon plateau de fromage </title>
+    <link rel="icon" type="image/png" href="favicon/favicon.png">
+    <script type="text/javascript" src="cheeseData/cheeses.js"></script>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+</head>
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
+<body>
+    <!-- Bannière : Début -->
+    <header role="banner" class="fr-header fr-mb-1w">
+        <div class="fr-header__body">
+            <div class="fr-container">
+                <div class="fr-header__body-row">
+                    <div class="fr-header__brand fr-enlarge-link">
+                        <div class="fr-header__brand-top">
+                            <div class="fr-header__logo">
+                                <p class="fr-logo">
+                                    Ministère
+                                    <br>du Fromage
+                                </p>
+                            </div>
+                        </div>
+                        <div class="fr-header__service">
+                            <a href="/projets/fromages/index.htm" title="Configurateur de plateau fromages">
+                              <p class="fr-header__service-title">Configurateur de plateau fromages</p>
+                            </a>
+                            <p class="fr-header__service-tagline">et vos rêves sont exaucés!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Bannière : Fin -->
+
+    <!-- Templates : Début -->
+    <template id="cheese-type-bloc">
+        <h3 class="fr-h4"></h3>
+        <div class="fr-container">
+            <div class="fr-grid-row fr-grid-row--gutters fr-grid-row--center">
+                <!-- 
+                <div class="fr-col-12 fr-col-sm-6 fr-col-md-4 fr-col-lg-3 fr-col-xl-2 fr-p-2w"> 
+                    <button class="fr-btn fr-btn--icon-right fr-icon-refresh-line" onclick="">Aléatoire</button>
+                </div> 
+                -->
+            </div>
+        </div>
+    </template>
+
+    <template id="cheese-example">
+
+
+
+        <div class="fr-col-6 fr-col-lg-4 fr-col-xl-3 fr-mb-3w">
+            <div class="fr-card fr-card--shadow fr-card--sm">
+                
+                <div class="fr-card__header">
+                    <div class="fr-card__img">
+                        <img class="fr-responsive-img" src="./img/placeholders/placeholder.1x1.png" alt="Image du fromage">
+                        <!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+                    </div>
+                    <ul class="fr-badges-group">
+                        <li>
+                            <p class="fr-badge fr-badge--sm" ><a href="" id="wiki" target="_blank"><span class="fr-icon-global-line fr-fi--sm" aria-hidden="true"></span> WIKI</a></p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="fr-card__content">
+                    <div class="fr-card__body">
+                        <div class="fr-card__start">
+                            <ul class="fr-badges-group">
+                                <li>
+                                    <p class="fr-badge" id="cheese-country"></p>
+                                </li>
+                                <li>
+                                    <p class="fr-badge" id="cheese-milk"></p>
+                                </li>
+                            </ul>
+                        </div>
+                        <h5 class="fr-card__title fr-h5"></h4>
+                        <p class="fr-card__desc"></p>
+                    </div>
+                    <div class="fr-card__footer">
+                        <ul class="fr-btns-group fr-btns-group--inline fr-btns-group--center fr-btns-group--equisized">
+                            <li>
+                                <button class="fr-btn fr-icon-success-fill" title="Choisir" onclick="" id="btn-choisir">
+                                </button>
+                            </li>
+                            <li>
+                                <button class="fr-btn fr-btn--secondary fr-icon-refresh-line" title="Changer" onclick="" id="btn-changer">
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>  
+        </div>
+
+
+
+
+    </template>
+    <!-- Templates : Fin -->
+
+    <!-- Corps principal : Début -->
+    <main role="main" class="fr-mb-3w fr-mx-3w">
+        <div class="fr-tabs">
+        <!-- Onglets -->
+            <ul class="fr-tabs__list" role="tablist" aria-label="[A modifier | nom du système d'onglet]">
+                <li role="presentation">
+                    <button id="panel-config" class="fr-tabs__tab fr-tabs__tab--icon-left fr-icon-settings-5-fill" tabindex="0" role="tab" aria-selected="true" aria-controls="panel-config-div">Configuration</button>
+                </li>
+                <li role="presentation">
+                    <button id="panel-result" class="fr-tabs__tab fr-tabs__tab--icon-left fr-icon-restaurant-fill" tabindex="-1" role="tab" aria-selected="false" aria-controls="panel-result-div">Proposition</button>
+                </li>
+            </ul>
+
+        <!-- Formulaire : Début -->
+            <div id="panel-config-div" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="panel-config" tabindex="0">
+                <div id="formulaire-fromage">
+                    <h1 access="false" id="config-title" class="fr-h2">Configurer votre événement</h1>
+                    
+                    <!-- Formulaire : type d'événement -->
+                    <div class="fr-fieldset fr-fieldset--inline fr-mb-2w" id="event-types">
+                        <legend class="fr-fieldset__legend">Type d'événement</legend>
+                        <div class="fr-fieldset__content">
+                            <div class ="fr-radio-group">
+                                <input  name="event-type" access="false" id="event-type-0" required="required" aria-required="true" value="repas" type="radio" onclick="selected_event_type('repas')">
+                                <label class="fr-label" for="event-type-0">Vin et fromages</label>
+                            </div>
+                            <div class ="fr-radio-group">
+                                <input name="event-type" access="false" id="event-type-1" required="required" aria-required="true" value="apero" type="radio" onclick="selected_event_type('apero')">
+                                <label class="fr-label" for="event-type-1">Apéro</label>
+                            </div>
+                            <div class ="fr-radio-group">
+                                <input name="event-type" access="false" id="event-type-2" required="required" aria-required="true" value="degustation" type="radio" onclick="selected_event_type('degustation')">
+                                <label class="fr-label" for="event-type-2">Dégustation</label>
+                            </div>
+                        </div> 
+                    </div>
+
+                    <!-- Formulaire : nombre de participant -->
+                    <div class="fr-input-group fr-mb-2w" id="nb-personnes-input">
+                        <label for="number-personnes" class="fr-fieldset__legend">Nombre de convives</label>
+                        <input class="fr-input" pattern="[0-9]*" inputmode="numeric" type="number" name="nb-personnes" id="nb-personnes" value="0" required="required" oninput="cheese_types_quantity(this.value)">
+                    </div>
+
+
+                    <!-- Formulaire : choix des fromages -->
+                    <div class="fr-form-group fr-mb-2w">
+                        <fieldset class="fr-fieldset" id="cheese-types" onchange="check_cheese_types_selection()">
+                            <legend class="fr-fieldset__legend">Type de fromages souhaités
+                                <span class="fr-hint-text">Veuillez sélectionner au moins un type de fromage.</span>
+                            </legend>
+
+                            <!-- Tuiles horizontales placées dans la grille -->
+
+                            <div class="fr-container">
+                                <div class="fr-grid-row fr-grid-row--gutters" id="checkbox-list">
+                                </div>
+                            </div> 
+
+                            <div class="fr-container">
+                                <div class="fr-grid-row fr-grid-row--gutters">
+                                    
+                                    <div class="fr-col-6 fr-col-lg-4 fr-col-xl-3">
+                                        <input class="input_cheese_type" type="checkbox" name="cheese-type" value="soft-ripened-cheese" id="cheese-type-0">
+                                        <label class="label_cheese_type" for="cheese-type-0">
+                                            <div class="fr-tile fr-enlarge-link fr-tile--vertical">
+                                                <div class="fr-tile__body">
+                                                    <h4 class="fr-tile__title">
+                                                        Pâte molle et croûte fleurie
+                                                    </h4>
+                                                </div>
+                                                <div class="fr-card__img">
+                                                    <img src="https://www.laboitedufromager.com/wp-content/uploads/LBDF-Fromage-pate-molle-croute-fleurie.jpg" class="fr-responsive-img" alt="">
+                                                    <!-- L'alternative de l'image (attribut alt) doit à priori rester vide car l'image est illustrative et ne doit pas être restituée aux technologies d’assistance. Vous pouvez toutefois remplir l'alternative si vous estimer qu'elle apporte une information essentielle à la compréhension du contenu non présente dans le texte -->
+                                                </div>
+                                            </div>
+                                        </label>
+                                    </div>
+
+                                    <div class="fr-col-6 fr-col-lg-4 fr-col-xl-3">
+                                        <input class="input_cheese_type" type="checkbox" name="cheese-type" value="cooked-pressed-cheese" id="cheese-type-1">
+                                        <label class="label_cheese_type" for="cheese-type-1">
+                                            <div class="fr-tile fr-enlarge-link fr-tile--vertical">
+                                                <div class="fr-tile__body">
+                                                    <h4 class="fr-tile__title">
+                                                        Pâte pressée cuite
+                                                    </h4>
+                                                </div>
+                                                <div class="fr-card__img">
+                                                    <img src="https://www.gastronomiac.com/wp/wp-content/uploads/2015/06/pate-pressee-cuite-comte.png" class="fr-responsive-img" alt="">
+                                                    <!-- L'alternative de l'image (attribut alt) doit à priori rester vide car l'image est illustrative et ne doit pas être restituée aux technologies d’assistance. Vous pouvez toutefois remplir l'alternative si vous estimer qu'elle apporte une information essentielle à la compréhension du contenu non présente dans le texte -->
+                                                </div>
+                                            </div>
+                                        </label>
+                                    </div>
+
+                                    <div class="fr-col-6 fr-col-lg-4 fr-col-xl-3">
+                                        <input class="input_cheese_type" type="checkbox" name="cheese-type" value="uncooked-pressed-cheese" id="cheese-type-2">
+                                        <label class="label_cheese_type" for="cheese-type-2">
+                                            <div class="fr-tile fr-enlarge-link fr-tile--vertical">
+                                                <div class="fr-tile__body">
+                                                    <h4 class="fr-tile__title">
+                                                        Pâte pressée non cuite
+                                                    </h4>
+                                                </div>
+                                                <div class="fr-card__img">
+                                                    <img src="https://www.gastronomiac.com/wp/wp-content/uploads/2015/06/pate-pressee-non-cuite-morbier.png" class="fr-responsive-img" alt="">
+                                                    <!-- L'alternative de l'image (attribut alt) doit à priori rester vide car l'image est illustrative et ne doit pas être restituée aux technologies d’assistance. Vous pouvez toutefois remplir l'alternative si vous estimer qu'elle apporte une information essentielle à la compréhension du contenu non présente dans le texte -->
+                                                </div>
+                                            </div>
+                                        </label>
+                                    </div>
+
+                                    <div class="fr-col-6 fr-col-lg-4 fr-col-xl-3">
+                                        <input class="input_cheese_type" type="checkbox" name="cheese-type" value="rind-washed-cheese" id="cheese-type-3">
+                                        <label class="label_cheese_type" for="cheese-type-3">
+                                            <div class="fr-tile fr-enlarge-link fr-tile--vertical">
+                                                <div class="fr-tile__body">
+                                                    <h4 class="fr-tile__title">
+                                                        Pâte molle à croûte lavée
+                                                    </h4>
+                                                </div>
+                                                <div class="fr-card__img">
+                                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Livarot_%28fromage%29_09.jpg/1024px-Livarot_%28fromage%29_09.jpg" class="fr-responsive-img" alt="">
+                                                    <!-- L'alternative de l'image (attribut alt) doit à priori rester vide car l'image est illustrative et ne doit pas être restituée aux technologies d’assistance. Vous pouvez toutefois remplir l'alternative si vous estimer qu'elle apporte une information essentielle à la compréhension du contenu non présente dans le texte -->
+                                                </div>
+                                            </div>
+                                        </label>
+                                    </div>
+
+                                    <div class="fr-col-6 fr-col-lg-4 fr-col-xl-3">
+                                        <input class="input_cheese_type" type="checkbox" name="cheese-type" value="blue-cheese" id="cheese-type-4">
+                                        <label class="label_cheese_type" for="cheese-type-4">
+                                            <div class="fr-tile fr-enlarge-link fr-tile--vertical">
+                                                <div class="fr-tile__body">
+                                                    <h4 class="fr-tile__title">
+                                                        Pâte persillée
+                                                    </h4>
+                                                </div>
+                                                <div class="fr-card__img">
+                                                    <img src="https://www.laboitedufromager.com/wp-content/uploads/2017/04/Fromage-a-pate-persillee.jpg" class="fr-responsive-img" alt="">
+                                                    <!-- L'alternative de l'image (attribut alt) doit à priori rester vide car l'image est illustrative et ne doit pas être restituée aux technologies d’assistance. Vous pouvez toutefois remplir l'alternative si vous estimer qu'elle apporte une information essentielle à la compréhension du contenu non présente dans le texte -->
+                                                </div>
+                                            </div>
+                                        </label>
+
+                                    </div>
+
+                                    <div class="fr-col-6 fr-col-lg-4 fr-col-xl-3">
+                                        <input class="input_cheese_type" type="checkbox" name="cheese-type" value="fresh-cheese" id="cheese-type-5">
+                                        <label class="label_cheese_type" for="cheese-type-5">
+                                            <div class="fr-tile fr-enlarge-link fr-tile--vertical">
+                                                <div class="fr-tile__body">
+                                                    <h4 class="fr-tile__title">
+                                                        Fromages frais
+                                                    </h4>
+                                                </div>
+                                                <div class="fr-card__img">
+                                                    <img src="https://www.passionpatisserie.fr/wp-content/uploads/2020/10/Fromage-frais-5.jpg" class="fr-responsive-img" alt="">
+                                                    <!-- L'alternative de l'image (attribut alt) doit à priori rester vide car l'image est illustrative et ne doit pas être restituée aux technologies d’assistance. Vous pouvez toutefois remplir l'alternative si vous estimer qu'elle apporte une information essentielle à la compréhension du contenu non présente dans le texte -->
+                                                </div>
+                                            </div>
+                                        </label>
+                                    </div>
+
+                                    <div class="fr-col-6 fr-col-lg-4 fr-col-xl-3">
+                                        <input class="input_cheese_type" type="checkbox" name="cheese-type" value="mixed-cheese" id="cheese-type-6">
+                                        <label class="label_cheese_type" for="cheese-type-6">
+                                            <div class="fr-tile fr-enlarge-link fr-tile--vertical">
+                                                <div class="fr-tile__body">
+                                                    <h4 class="fr-tile__title">
+                                                        Fromage fort
+                                                    </h4>
+                                                </div>
+                                                <div class="fr-card__img">
+                                                    <img src="https://androuet.com/images-up/images/fromages/rkFz5_Fort%20de%20Bethune-7618.jpg" class="fr-responsive-img" alt="">
+                                                    <!-- L'alternative de l'image (attribut alt) doit à priori rester vide car l'image est illustrative et ne doit pas être restituée aux technologies d’assistance. Vous pouvez toutefois remplir l'alternative si vous estimer qu'elle apporte une information essentielle à la compréhension du contenu non présente dans le texte -->
+                                                </div>
+                                            </div>
+                                        </label>
+                                    </div>
+
+                                    <div class="fr-col-6 fr-col-lg-4 fr-col-xl-3">
+                                        <input class="input_cheese_type" type="checkbox" name="cheese-type" value="stretched-curd-cheese" id="cheese-type-7">
+                                        <label class="label_cheese_type" for="cheese-type-7">
+                                            <div class="fr-tile fr-enlarge-link fr-tile--vertical">
+                                                <div class="fr-tile__body">
+                                                    <h4 class="fr-tile__title">
+                                                        Pâte filée
+                                                    </h4>
+                                                </div>
+                                                <div class="fr-card__img">
+                                                    <img src="https://www.gastronomiac.com/wp/wp-content/uploads/2015/06/pate-dure-filee-mozzarella.png" class="fr-responsive-img" alt="">
+                                                    <!-- L'alternative de l'image (attribut alt) doit à priori rester vide car l'image est illustrative et ne doit pas être restituée aux technologies d’assistance. Vous pouvez toutefois remplir l'alternative si vous estimer qu'elle apporte une information essentielle à la compréhension du contenu non présente dans le texte -->
+                                                </div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        <!-- Formulaire : Fin -->
+
+        <!-- Plateau : Début -->
+            <div id="panel-result-div" class="fr-tabs__panel" role="tabpanel" aria-labelledby="panel-result" tabindex="0">
+                <div id="plateau-proposition">
+                    <h1 class="fr-h2">Votre plateau de fromage</h1>
+
+                    <div id="message-erreur" class="fr-alert fr-alert--error fr-mb-3w">
+                        <p class="fr-alert__title">Données manquantes</p>
+                        <p>Il faut spécifier le type d'événement, le nombre de participants ainsi qu'au moins un type de fromages souhaité.</p>
+                    </div>
+
+                    <h2 class="fr-h3">Quantité totale à prévoir</h2>
+                    <div class="fr-highlight">
+                        <p class="fr-text--lg" id="qtyFromage"></p>
+                    </div>
+
+                    <h2 class="fr-h3">Exemples de fromages</h2>
+                    <div id="blue-cheese" class="hidden"></div>
+                    <div id="fresh-cheese" class="hidden"></div>
+                    <div id="soft-ripened-cheese" class="hidden"></div>
+                    <div id="cooked-pressed-cheese" class="hidden"></div>
+                    <div id="uncooked-pressed-cheese" class="hidden"></div>
+                    <div id="rind-washed-cheese" class="hidden"></div>
+                    <div id="mixed-cheese" class="hidden"></div>
+                    <div id="stretched-curd-cheese" class="hidden"></div>
+
+
+
+                </div>
+            </div>
+        <!-- Plateau : Fin -->
+        </div>
+    </main>
+    <!-- Corps principal : Fin -->
+
+    <!-- Pied de page : Début -->
+    <footer class="fr-footer" role="contentinfo" id="footer">
+        <div class="fr-container">
+            <div class="fr-footer__body">
+                <div class="fr-footer__brand fr-enlarge-link">
+                    <a href="/" title="Retour à l’accueil">
+                        <p class="fr-logo" title="république française">
+                            Ministère<br>
+                            du Fromage
+                        </p>
+                    
+                </div>
+                <div class="fr-footer__content">
+                    <ul class="fr-footer__content-list">
+                        <li class="fr-footer__content-item">
+                            <a class="fr-footer__content-link" href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>
+                        </li>
+                        <li class="fr-footer__content-item">
+                            <a class="fr-footer__content-link" href="https://gouvernement.fr">gouvernement.fr</a>
+                        </li>
+                        <li class="fr-footer__content-item">
+                            <a class="fr-footer__content-link" href="https://service-public.fr">service-public.fr</a>
+                        </li>
+                        <li class="fr-footer__content-item">
+                            <a class="fr-footer__content-link" href="https://data.gouv.fr">data.gouv.fr</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="fr-footer__bottom">
+                <ul class="fr-footer__bottom-list">
+                    <li class="fr-footer__bottom-item">
+                        <a class="fr-footer__bottom-link" href="#">Accessibilité: non conforme</a>
+                <div class="fr-footer__bottom-copy">
+                    <p>Sauf mention contraire, tous les contenus de ce site sont sous <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank">licence etalab-2.0</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Pied de page : Fin -->
+
+    <!-- Script propre au plateau de fromage -->
+    <script type="text/javascript" src="script.js"></script>
+
+    <!-- Scripts propres au DSE -->
+    <script type="module" src="dsfr.module.min.js"></script>
+    <script type="text/javascript" nomodule src="dsfr.nomodule.min.js"></script>
+
+</body>
 </html>

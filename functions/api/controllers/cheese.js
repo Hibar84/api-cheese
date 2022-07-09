@@ -6,7 +6,7 @@ const { db } = require("../../utils/admin");
 const cheeses = db.collection("cheeses");
 
 // Fonction de création d'un fromage
-exports.createCeese = (req, res) => {
+exports.createCheese = (req, res) => {
     const newCheese = {
         name: req.body.name,
         url: req.body.url,

@@ -9,10 +9,10 @@ const {
 } = require("../controllers/cheese");
 
 // Création d'un fromage
-router.route("/create").post(createCheese);
+router.route("/").post(createCheese);
 
 // Modification d'un fromage
-router.route("/modify").put(modifyCheese);
+router.route("/:idCheese").put(modifyCheese);
 
 // Lecture d'un fromage connaissant son ID
 router.route("/:idCheese").get(getOneCheese);
@@ -21,6 +21,6 @@ router.route("/:idCheese").get(getOneCheese);
 router.route("/").get(getAllCheese);
 
 // Suppression d'un fromage
-router.route("/delete/:idCheese").delete(deleteCheese);
+router.route("/:idCheese").delete(deleteCheese);
 
 module.exports = router;
